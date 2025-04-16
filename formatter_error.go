@@ -13,7 +13,7 @@ type ErrorStruct struct {
 }
 
 func FormatError() slogformatter.Formatter {
-	return slogformatter.FormatByType(func(err error) slog.Value {
+	return slogformatter.FormatByType[error](func(err error) slog.Value {
 		e := ErrorStruct{
 			Message: err.Error(),
 			Type:    reflect.TypeOf(err).String(),

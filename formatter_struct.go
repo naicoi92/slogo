@@ -47,6 +47,7 @@ func structValue(s any) slog.Value {
 			fieldName = field.Tag.Get("json")
 		}
 		if field.PkgPath != "" {
+			values = append(values, slog.StringValue(fmt.Sprintf("%s=%v", fieldName, value)))
 			continue
 		}
 		switch field.Tag.Get("slog") {
