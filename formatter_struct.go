@@ -38,12 +38,8 @@ func anyValue(s any) slog.Value {
 func structValue(v reflect.Value) slog.Value {
 	t := v.Type()
 	var values []slog.Value
+// Only exported fields are processed.
 	for i := range t.NumField() {
-		field := t.Field(i)
-		value := v.Field(i)
-		if field.PkgPath != "" {
-			continue
-		}
 		switch field.Tag.Get("slog") {
 		case "-":
 			continue
