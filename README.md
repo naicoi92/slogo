@@ -1,6 +1,6 @@
-# SLogo
+# slogo
 
-SLogo is a lightweight, customizable formatter and handler for the Go standard library's `log/slog` package. It enhances logging capabilities by providing structured logging with custom formatters and multiple handler support.
+slogo is a lightweight, customizable formatter and handler for the Go standard library's `log/slog` package. It enhances logging capabilities by providing structured logging with custom formatters and multiple handler support.
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/naicoi92/slogo.svg)](https://pkg.go.dev/github.com/naicoi92/slogo)
 [![Go Report Card](https://goreportcard.com/badge/github.com/naicoi92/slogo)](https://goreportcard.com/report/github.com/naicoi92/slogo)

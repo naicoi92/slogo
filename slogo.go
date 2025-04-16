@@ -49,8 +49,8 @@ func (h *SlogoHandler) getHandler() slog.Handler {
 func (h *SlogoHandler) getFormatters() []slogformatter.Formatter {
 	if len(h.formatters) == 0 {
 		return []slogformatter.Formatter{
-			FormatStruct(),
 			FormatError(),
+			FormatStruct(),
 		}
 	}
 	return h.formatters
