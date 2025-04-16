@@ -8,9 +8,9 @@ import (
 	"gitlab.com/greyxor/slogor"
 )
 
-type option func(*SlogoHandler)
+type Option func(*SlogoHandler)
 
-func WithSlogor() option {
+func WithSlogor() Option {
 	return func(h *SlogoHandler) {
 		options := []slogor.OptionFn{
 			slogor.SetTimeFormat(time.Stamp),
@@ -25,13 +25,13 @@ func WithSlogor() option {
 	}
 }
 
-func WithSlogHandler(handler slog.Handler) option {
+func WithSlogHandler(handler slog.Handler) Option {
 	return func(h *SlogoHandler) {
 		h.handlers = append(h.handlers, handler)
 	}
 }
 
-func WithFormatter(formatter slogformatter.Formatter) option {
+func WithFormatter(formatter slogformatter.Formatter) Option {
 	return func(h *SlogoHandler) {
 		h.formatters = append(h.formatters, formatter)
 	}
