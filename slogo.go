@@ -3,7 +3,6 @@ package slogo
 import (
 	"io"
 	"log/slog"
-	"os"
 	"time"
 
 	slogformatter "github.com/samber/slog-formatter"
@@ -35,11 +34,11 @@ func NewHandler(w io.Writer, opts *slog.HandlerOptions, options ...option) slog.
 
 func (h *SlogoHandler) getHandler() slog.Handler {
 	if len(h.handlers) == 0 {
-return slogor.NewHandler(
-		h.writer,
-		slogor.SetLevel(slog.LevelInfo),
-		slogor.SetTimeFormat(time.Stamp),
-		slogor.ShowSource())
+		return slogor.NewHandler(
+			h.writer,
+			slogor.SetLevel(slog.LevelInfo),
+			slogor.SetTimeFormat(time.Stamp),
+			slogor.ShowSource())
 	}
 	if len(h.handlers) == 1 {
 		return h.handlers[0]
