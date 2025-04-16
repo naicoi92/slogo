@@ -8,15 +8,15 @@ import (
 )
 
 type ErrorStruct struct {
-	Message string
 	Type    string
+	Message string
 }
 
 func FormatError() slogformatter.Formatter {
 	return slogformatter.FormatByType[error](func(err error) slog.Value {
 		e := ErrorStruct{
-			Message: err.Error(),
 			Type:    reflect.TypeOf(err).String(),
+			Message: err.Error(),
 		}
 		return anyValue(e)
 	})

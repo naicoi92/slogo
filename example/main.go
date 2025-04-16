@@ -68,4 +68,9 @@ func main() {
 	if err := errors.New("an example error"); err != nil {
 		slog.Error("Operation failed", "error", err)
 	}
+	CustomError := errors.New("custom error")
+
+	if err := CustomError; err != nil {
+		slog.Error("Operation failed", "error", err)
+	}
 }
