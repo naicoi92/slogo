@@ -17,7 +17,7 @@ type SlogoHandler struct {
 	formatters []slogformatter.Formatter
 }
 
-func NewHandler(w io.Writer, opts *slog.HandlerOptions, options ...option) slog.Handler {
+func NewHandler(w io.Writer, opts *slog.HandlerOptions, options ...Option) slog.Handler {
 	h := &SlogoHandler{
 		writer:     w,
 		options:    opts,
